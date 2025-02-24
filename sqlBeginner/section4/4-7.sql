@@ -2,22 +2,19 @@ USE test;
  
 -- How to change a column's data type
  
-ALTER TABLE <table name>
-CHANGE COLUMN <current column name> <new column name> <data type>;
+-- ALTER TABLE <table name>
+-- CHANGE COLUMN <current column name> <new column name> <data type>;
  
-ALTER TABLE <table name>
-MODIFY COLUMN <column name> <data type>;
+-- ALTER TABLE <table name>
+-- MODIFY COLUMN <column name> <data type>;
  
-DESCRIBE addresses;
+DESCRIBE people;
 
-ALTER TABLE addresses
-CHANGE COLUMN city city VARCHAR(30);
+ALTER TABLE people 
+CHANGE COLUMN iD id INT;
 
-ALTER TABLE addresses
-MODIFY COLUMN city CHAR(25);
-
-ALTER TABLE addresses
-MODIFY COLUMN city int;
+ALTER TABLE people 
+MODIFY id INT;
 
 
 

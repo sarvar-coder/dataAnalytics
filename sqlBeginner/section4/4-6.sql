@@ -2,26 +2,19 @@ USE test;
  
 -- How to change a column's name
  
-ALTER TABLE <table name>
-CHANGE <current column name> <new column name> <data type>;
+-- ALTER TABLE <table name>
+-- CHANGE <current column name> <new column name> <data type>;
  
-ALTER TABLE <tablename>
-RENAME COLUMN <current column name> TO <new column name>;
- 
-DESCRIBE pets;
+-- ALTER TABLE <tablename>
+-- RENAME COLUMN <current column name> TO <new column name>;
 
-ALTER TABLE pets
-CHANGE species animal_type VARCHAR(20);
+SHOW TABLES;
+DESCRIBE address;
+DESCRIBE people;
+DESCRIBE pet;
 
-ALTER TABLE pets
-RENAME COLUMN animal_type TO species;
+ALTER TABLE address
+CHANGE huouse_number house_number INT;
 
-ALTER TABLE pets
-RENAME COLUMN species TO `animal type`;
-
-
-
-
-
-
-
+ALTER TABLE pet
+RENAME COLUMN people_id TO owner_id;

@@ -1,35 +1,19 @@
 USE test;
+ SHOW TABLES;
  
--- SQL  to add a primary key to a table.
-ALTER TABLE <table name>
-ADD PRIMARY KEY (<column name>);
- 
--- SQL to remove a primary key from a table.
-ALTER TABLE <table name>
-DROP PRIMARY KEY;
-
-DESCRIBE addresses;
-
-ALTER TABLE addresses
+-- sql to add a primary key 
+ALTER TABLE address  
 ADD PRIMARY KEY (id);
 
-ALTER TABLE addresses
+-- sql to remove primary key 
+ALTER TABLE address 
 DROP PRIMARY KEY;
 
-ALTER TABLE addresses
-MODIFY id int;
+DESCRIBE address;
 
 DESCRIBE people;
 
-ALTER TABLE people
+ALTER TABLE people 
 ADD PRIMARY KEY (id);
-
-
-
-
-
-
-
-
 
 
