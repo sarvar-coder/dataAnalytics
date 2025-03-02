@@ -1,31 +1,21 @@
 USE cinema_booking_system;
  
 -- In the Chaplin room, which film was shown most often?
- 
-SELECT * FROM films;
-SELECT * FROM rooms;
-SELECT * FROM screenings;
+-- helper 
+ SELECT * FROM rooms;
+ SELECT * FROM films;
+ SELECT * FROM screenings;
 
-SELECT f.name, count(*) AS no_screenings FROM films f
-JOIN screenings s ON f.id = s.film_id
-JOIN rooms r ON r.id = s.room_id
-WHERE r.name = 'Chaplin'
+-- SOLUTION ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT f.name as name, count(s.film_id) as most_showing FROM screenings s
+JOIN films f ON s.film_id = f.id
+WHERE room_id = ( SELECT id FROM rooms  WHERE name = 'Chaplin') 
 GROUP BY f.name
-ORDER BY no_screenings DESC
-LIMIT 1;
+ORDER BY most_showing DESC
+limit 1;
 
+-- helper 
+SELECT id FROM rooms 
+WHERE name = 'Chaplin';
 
--- Sub-query solution.
  
-SELECT f.name, count(*) AS no_screenings FROM films f
-JOIN screenings s ON f.id = s.film_id
-JOIN rooms r ON r.id = s.room_id
-WHERE r.name = 'Chaplin'
-GROUP BY f.name
-HAVING no_screenings =
-(SELECT max(screenings_count) FROM
-(SELECT count(*) AS screenings_count FROM films f
-JOIN screenings s ON f.id = s.film_id
-JOIN rooms r ON r.id = s.room_id
-WHERE r.name = 'Chaplin'
-GROUP BY f.name) as rc);
