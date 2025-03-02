@@ -3,12 +3,7 @@ USE cinema_booking_system;
 -- Which film (or films) had the most screenings?
 SELECT f.name, COUNT(s.film_id) as no_watched FROM films f
 JOIN screenings s ON s.film_id = f.id
-GROUP BY s.film_id
-HAVING no_watched = (
-SELECT COUNT(*) FROM 
-
-);
-
+GROUP BY s.film_id;
 
 -- Get the counts.
 SELECT COUNT(*) FROM 
